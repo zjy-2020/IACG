@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Contexual-Gesture: Co-Speech Gesture Video Generation Through Context-aware Gesture Representation.">
+  <meta name="keywords" content="gesture generation, motion representation, video generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GranuMamba: A Multi-Granularity State Space Model for Co-Speech Gesture Generation</h1>
+
+<div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- Arxiv PDF link -->
+                            <span class="link-block">
+                        <a href="..." target="_blank"
+                           class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                            <!-- Github link -->
+                            <span class="link-block">
+                    <a href="..." target="_blank"
+                       class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code coming soon!</span>
+                  </a>
+                </span>
+
+                            <!-- ArXiv abstract Link -->
+                            <span class="link-block">
+                  <a href="..." target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+                        </div>
+                    </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+           Generating high-fidelity co-speech gestures requires modeling complex temporal dynamics, ranging from rapid, fine-grained hand movements to slow, global body shifts. Existing approaches typically operate at a single temporal scale, limiting their ability to capture both local precision and global coherence. We propose GranuMamba, a novel framework that explicitly models multi-scale gesture dynamics. It employs two parallel Mamba-based streams to separately encode short-term fine-grained motions and long-term global dynamics. These representations are adaptively fused via a dynamic gating mechanism, enabling context-dependent integration of temporal features. To further encourage specialization, we introduce granularity-aware training objectives, optimizing each stream with a tailored loss for either local detail or global consistency. Experiments on the BEAT2 dataset demonstrate that GranuMamba outperforms state-of-the-art baselines in both objective metrics, including Fréchet Gesture Distance (FGD), and subjective evaluations, generating gestures that are more expressive, coherent, and human-like.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+  
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Method</h2>
+     <center><div class="hero-body">
+        <img src="static/image/pipeline.png"/>
+      <p>The pipeline of GranuMamba model. Stage 1: A GraphConv-VQ-VAE discretizes gesture motion into a codebook of tokens. Stage 2: Speech, text, and identity features condition two Mamba-based streams: a fine-grained branch for local hand motions and a coarse-grained branch for global dynamics. A gated fusion integrates both, and the GraphConv-Temporal decoder reconstructs realistic gestures.</p>
+    </div> </center>
+<!--         <center><div class="hero-body">
+        <img src="static/image/csta.png"/>
+      <p>The CSTA module. The module consists of three key components: spatio-temporal feature decomposition, hierarchical attention computation, and dynamic gated fusion. These components collaboratively process the extracted speech features to achieve precise motion synthesis.</p>
+    </div></center> -->
+<!--     <div class="hero-body"> -->
+<!--         <img src="static/image/stage2.png"/> -->
+<!--       <p>Overview of the second stage of our framework. The inputs include Gaussian noise, keypoint sequences, the target person's image, and the pretrained HMM module (upper left). These inputs are processed through a hierarchical diffusion model, where the HMM module injects memory features to enhance motion coherence. Finally, the VAE decoder generates the video sequence with anatomically consistent gestures and smooth temporal dynamics.</p> -->
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">  
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          
+          <h2 class="title is-3">Results</h2>
+          
+          <div class="content">
+            <!-- ==================== 第一行视频 ==================== -->
+            <div class="columns is-centered">
+              <div class="column is-one-fourth has-text-centered">
+
+                <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
+                  <source src="static/results/2_scott_0_1_1_grau_body.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="column is-one-fourth has-text-centered">
+
+                <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
+                  <source src="static/results/2_scott_0_2_2_grau_body.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="column is-one-fourth has-text-centered">
+
+                <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
+                  <source src="static/results/2_scott_0_3_3_grau_body.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="column is-one-fourth has-text-centered">
+
+                <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
+                  <source src="static/results/2_scott_0_4_4_grau_body.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            
+            <!-- ==================== 第二行视频 ==================== -->
+            <div class="columns is-centered">
+              <div class="column is-one-fourth has-text-centered">
+
+                <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
+                  <source src="static/results/2_scott_0_5_5_grau_body.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="column is-one-fourth has-text-centered">
+
+                <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
+                  <source src="static/results/2_scott_0_6_6_grau_body.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="column is-one-fourth has-text-centered">
+
+                <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
+                  <source src="static/results/2_scott_0_7_7_grau_body.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="column is-one-fourth has-text-centered">
+
+                <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
+                  <source src="static/results/2_scott_0_8_8_grau_body.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <p class="content has-text-centered">
+             The experimental results of our proposed model. The videos showcase how our approach produces realistic and consistent co-speech gestures, with smooth upper-body movements and expressive hand dynamics, aligned with the corresponding speech input.
+          </p>
+          
+        </div>
+      </div>    
+    </div>
+  </div>
+</section>
+
+  
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-4">Comparison on PATS</h2>
+      
+      <div id="results-carousel" class="carousel results-carousel" style="height: 600px; margin: auto;">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/contrast/1_1_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/contrast/2_2_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <source src="static/contrast/3_3_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">
+            <source src="static/contrast/4_4_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <h2 class="content has-text-centered">
+        Qualitative results compared with other methods. Our method achieves accurate gesture generation and high-quality overall visuals.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- End video carousel -->
+
+
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-4">The results of the ablation experiments</h2>
+      
+      <div id="results-carousel" class="carousel results-carousel" style="height: 600px; margin: auto;">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/ablation/65_65_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/contrast/73_73_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <source src="static/contrast/81_81_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">
+            <source src="static/contrast/95_95_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <h2 class="content has-text-centered">
+        Qualitative results compared with other methods. Our method achieves accurate gesture generation and high-quality overall visuals.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- End video carousel -->
+
+  
+
+
+
+
+<footer class="footer" style="padding-top: 6px; padding-bottom: 6px;">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Our website template comes from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and is modified based on it. Thanks to the authors contribution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
