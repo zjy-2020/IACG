@@ -126,7 +126,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-         Generating high-fidelity co-speech gestures requires modeling complex temporal dynamics, ranging from rapid, fine-grained hand movements to slow, global body shifts. Existing approaches typically operate at a single temporal scale, limiting their ability to capture both local precision and global coherence. We propose GranuMamba, a novel framework that integrates discrete motion priors with multi-scale temporal modeling. First, a GraphConv-VQ-VAE discretizes skeletal motions into a compact codebook of gesture tokens, enhancing semantic richness and structural consistency. Then, two parallel Mamba-based streams are employed to separately encode short-term fine-grained motions and long-term global dynamics. These representations are adaptively fused via a dynamic gating mechanism, enabling context-dependent integration of temporal features. Experiments on the BEAT2 dataset show that GranuMamba outperforms state-of-the-art baselines on both objective metrics and subjective evaluations, producing gestures that are more expressive, coherent, and human-like.
+         Co-speech gesture generation aims to synthesize 3D human motions that are semantically consistent and rhythmically aligned with input speech. While recent diffusion-based approaches have significantly improved motion quality and diversity, most existing methods fail to explicitly model the emotional cues embedded in speech or effectively disentangle semantic content from emotional style. This entanglement often leads to generated gestures that lack expressiveness or suffer from semantic ambiguity when emotional controls are applied. To address these limitations, this paper proposes the Intent-Aware Co-Speech Gesture (IACG) framework, which features Semantic-Emotional Disentanglement and Alignment. First, we introduce a dual-stream architecture that disentangles speech into independent semantic and emotional subspaces using a novel cross-reconstruction training strategy, which penalizes the mutual information between the semantic and emotional features in the latent space by forcing one stream's representation to fail in reconstructing the other stream's input. Second, to capture the intrinsic coupling between semantic and emotional, we design a Bimodal Intent Alignment mechanism that adaptively fuses these decoupled features through bidirectional interaction, forming a unified generation intent, i.e., a structured latent condition that explicitly preserves semantic invariance while modulating emotional intensity. Finally, this intent serves as the condition for a Latent Diffusion Model (LDM) equipped with a discrete motion prior (VQ-VAE), where a specialized intent alignment loss ensures the synthesized motions remain faithful to both linguistic meaning and emotional intensity. Extensive experiments on the BEAT2 and TED Emotion datasets demonstrate that our method outperforms state-of-the-art approaches in terms of motion quality, semantic consistency, and emotional controllability.
       </div>
     </div>
     <!--/ Abstract. -->
@@ -167,25 +167,25 @@
               <div class="column is-one-fourth has-text-centered">
 
                 <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
-                  <source src="static/results/2_scott_0_1_1_grau_body.mp4" type="video/mp4">
+                  <source src="static/results/2_scott_0_103_103.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="column is-one-fourth has-text-centered">
 
                 <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
-                  <source src="static/results/2_scott_0_2_2_grau_body.mp4" type="video/mp4">
+                  <source src="static/results/2_scott_0_87_87.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="column is-one-fourth has-text-centered">
 
                 <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
-                  <source src="static/results/2_scott_0_3_3_grau_body.mp4" type="video/mp4">
+                  <source src="static/results/3_solomon_0_65_65.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="column is-one-fourth has-text-centered">
 
                 <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
-                  <source src="static/results/2_scott_0_4_4_grau_body.mp4" type="video/mp4">
+                  <source src="static/results/idsg_solomon_0_111_111.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -195,25 +195,25 @@
               <div class="column is-one-fourth has-text-centered">
 
                 <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
-                  <source src="static/results/2_scott_0_5_5_grau_body.mp4" type="video/mp4">
+                  <source src="static/results/6_carla_0_73_73.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="column is-one-fourth has-text-centered">
 
                 <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
-                  <source src="static/results/2_scott_0_6_6_grau_body.mp4" type="video/mp4">
+                  <source src="static/results/6_carla_0_95_95.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="column is-one-fourth has-text-centered">
 
                 <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
-                  <source src="static/results/2_scott_0_7_7_grau_body.mp4" type="video/mp4">
+                  <source src="static/results/7_sophie_0_81_81.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="column is-one-fourth has-text-centered">
 
                 <video poster="" playsinline autoplay muted loop controls style="width: 100%; max-width: 400px;">
-                  <source src="static/results/2_scott_0_8_8_grau_body.mp4" type="video/mp4">
+                  <source src="static/results/7_sophie_0_73_73.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
