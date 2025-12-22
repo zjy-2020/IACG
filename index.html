@@ -151,28 +151,30 @@
   </div>
 </section> -->
 
-  <section class="framework-description">
-  <h3>Overview of the proposed IACG framework</h3>
-  <p>
-    The architecture comprises three stages:
-  </p>
-  <ul>
-    <li>
-      <strong>(i) Dual-Stream Disentanglement:</strong> 
-      Extracts independent semantic \( z_s \) and emotional \( z_e \) features using frozen encoders 
-      (indicated by <span class="highlight-blue">❄ snow-flakes</span>).
-    </li>
-    <li>
-      <strong>(ii) Bimodal Intent Alignment:</strong> 
-      Fuses these features into a unified intent condition \( z_{fuse} \).
-    </li>
-    <li>
-      <strong>(iii) Latent Diffusion Generation:</strong> 
-      Synthesizes motion latents conditioned on \( z_{fuse} \), utilizing a VQ-VAE motion prior. 
-      The stop-gradient \( sg[\cdot] \) ensures decoupled training of the prior and diffusion model, 
-      while <span class="highlight-red">🔥 flame</span> icons indicate trainable modules.
-    </li>
-  </ul>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Method</h2>
+    <div class="hero-body">
+      <center>
+        <img src="static/image/pipeline.png" alt="IACG Framework Pipeline" style="width: 100%; max-width: 900px;"/>
+      </center>
+      
+      <div class="content has-text-justified" style="margin-top: 20px; line-height: 1.6;">
+        <p>
+          Overview of the proposed IACG framework. The architecture comprises three stages: 
+          <br>
+          <strong>(i) Dual-Stream Disentanglement:</strong> Extracts independent semantic \( z_s \) and emotional \( z_e \) features using frozen encoders (indicated by <span style="color: #007bff;">❄</span> snow-flakes).
+          <br>
+          <strong>(ii) Bimodal Intent Alignment:</strong> Fuses these features into a unified intent condition \( z_{fuse} \).
+          <br>
+          <strong>(iii) Latent Diffusion Generation:</strong> Synthesizes motion latents conditioned on \( z_{fuse} \), utilizing a VQ-VAE motion prior (bottom left). The stop-gradient \( sg[\cdot] \) ensures decoupled training of the prior and diffusion model, while <span style="color: #ff4500;">🔥</span> flame icons indicate trainable modules.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
 
