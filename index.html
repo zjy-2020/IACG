@@ -372,22 +372,31 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-widescreen">
-      <h2 class="title is-4">The results of the ablation experiment</h2>
+      <!-- 标题优化 -->
+      <h2 class="title is-3 has-text-centered">Ablation Study</h2>
       
-      <div id="results-carousel" class="carousel results-carousel" style="height: 400px; margin: auto;">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
+      <!-- 视频容器：居中，宽度自适应 -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths"> <!-- 控制视频宽度，is-full 也可以 -->
+          
+          <video poster="" id="ablation-video" autoplay controls muted loop playsinline width="100%">
             <source src="static/ablation/ablation_grid_final.mp4" type="video/mp4">
           </video>
+
         </div>
       </div>
       
-      <h2 class="content has-text-centered">
-        Qualitative results of ablation studies. Different modules contribute to gesture realism and temporal consistency in varying degrees.
-      </h2>
+      <!-- Caption 优化：去掉 h2，改用 div/p，字号合适 -->
+      <div class="content has-text-centered">
+        <p>
+          <strong>Qualitative results of ablation studies.</strong> 
+          We compare the full model against variants lacking specific components. 
+          Please note how the full model (bottom-right) achieves the best trade-off between gesture realism and semantic-emotional alignment.
+        </p>
+      </div>
     </div>
   </div>
-</section>    
+</section> 
 
 <!-- End video carousel -->
 
