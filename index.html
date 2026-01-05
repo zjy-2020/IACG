@@ -158,18 +158,16 @@
     <h2 class="title is-3" style="text-align: center;">Method</h2>
     <div class="hero-body">
       <center>
-        <img src="static/image/pipeline.png" alt="IACG Framework Pipeline" style="width: 100vw; max-width: 1200px; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);"/>
+        <img src="static/image/pipeline.jpg" alt="IACG Framework Pipeline" style="width: 100vw; max-width: 1200px; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);"/>
       </center>
       
       <div class="content has-text-justified" style="margin-top: 20px; line-height: 1.6;">
         <p>
-          Overview of the proposed IACG framework. The architecture comprises three stages: 
-          <br>
-          <strong>(i) Dual-Stream Disentanglement:</strong> Extracts independent semantic \( z_s \) and emotional \( z_e \) features using frozen encoders (indicated by <span style="color: #007bff;">❄</span> snow-flakes).
-          <br>
-          <strong>(ii) Bimodal Intent Alignment:</strong> Fuses these features into a unified intent condition \( z_{fuse} \).
-          <br>
-          <strong>(iii) Latent Diffusion Generation:</strong> Synthesizes motion latents conditioned on \( z_{fuse} \), utilizing a VQ-VAE motion prior (bottom left). The stop-gradient \( sg[\cdot] \) ensures decoupled training of the prior and diffusion model, while <span style="color: #ff4500;">🔥</span> flame icons indicate trainable modules.
+          <strong>Overview of the proposed IACG framework.</strong> The pipeline consists of two phases: 
+  <br>
+  <strong>Stage 1:</strong> Input speech is first processed by frozen encoders to extract semantic (<i>z<sub>s</sub></i>) and emotional (<i>z<sub>e</sub></i>) features. These features then undergo Bidirectional Alignment (Semantic-to-Emotional and Emotional-to-Semantic) to produce refined, mutually consistent representations (<i>z'<sub>s</sub></i>, <i>z'<sub>e</sub></i>), which are fused via <i>F</i>(&cdot;) to form the intent condition. 
+  <br>
+  <strong>Stage 2:</strong> We utilize a VQ-VAE based Motion Prior to compress motion into a latent space. A diffusion model then synthesizes motion latents conditioned on the aligned intent, where <i>sg</i>[&cdot;] denotes the stop-gradient operation to decouple the training of the prior and the diffusion transformer.
         </p>
       </div>
     </div>
