@@ -62,7 +62,7 @@
     <div class="container is-max-widescreen">
       <div class="columns is-centered">
         <div class="column is-full">
-          <h1 class="title is-1 publication-title">Intent-Aware Co-Speech Gesture Generation via Semantic-Emotional Disentanglement and Alignment</h1>
+          <h1 class="title is-1 publication-title">Semantic-Emotional Disentanglement and Alignment for Controllable Co-Speech Gesture Generation</h1>
 
 <div class="column has-text-centered">
                         <div class="publication-links">
@@ -79,7 +79,7 @@
 
                     <!-- SM Link. -->
                     <span class="link-block">
-                      <a href="static/pdf/TMM2026_suplementary_material.pdf" target="_blank"
+                      <a href="static/pdf/TCSVT2026_suplementary_material.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
@@ -126,7 +126,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-       Co-speech gesture generation aims to synthesize 3D human motions that are semantically consistent and rhythmically aligned with input speech. While recent diffusion-based approaches have improved motion quality and diversity, most existing methods do not model emotional cues or effectively separate semantic content from emotional expression. As a result, emotional variations often entangle with semantics, causing semantic drift and ambiguous gestures under emotional control. To address this, we propose an Intent-Aware Co-Speech Gesture (IACG) framework that disentangles semantic and emotional factors and integrates them through bidirectional semantic–emotional alignment. Specifically, we design a dual-stream architecture with separate encoders for semantic content and emotional expression, leveraging text and speech respectively, to enforce semantic invariance while isolating emotion as a controllable modulation factor. Furthermore, we introduce an asymmetric bidirectional alignment mechanism that adaptively integrates the two representations into a unified generation intent, defined as a structured latent condition that captures semantic meaning and its emotional modulation, while preserving semantic invariance and enabling controllable emotional expression. Conditioning a latent diffusion model with a discrete motion prior on this intent enables the synthesis of gestures that are both expressive and semantically grounded. Extensive experiments on the BEAT2 and TED Emotion datasets show that our method consistently outperforms state-of-the-art approaches in motion quality, semantic consistency, and emotional controllability.
+      Co-speech gesture generation aims to synthesize 3D motions that are semantically consistent and rhythmically aligned with speech. Despite the success of recent diffusion-based approaches, they struggle with the inherent entanglement of linguistic semantics and affective prosody, where high-intensity emotional cues often override semantic grounding, leading to the ``semantic drift" phenomenon. To address this, we propose the Semantic-Emotional Aligned Gesture (SEAG) framework. SEAG employs a dual-stream architecture to disentangle semantic content from emotional expression via a cross-reconstruction strategy, enforcing semantic invariance while isolating emotion as a controllable modulation factor. Subsequently, we introduce an asymmetric bidirectional alignment mechanism, leveraging a Transformer-based integrator to map these features into a structured joint driving manifold. By anchoring expressive dynamics to linguistic invariants, this manifold provides a high-fidelity conditioning signal for a latent diffusion model. The orthogonality of our disentangled streams is validated through Mutual Information (MI) estimation and classifier leakage tests. Extensive experiments on the BEAT2, TED Emotion, and SHOW datasets demonstrate that SEAG achieves state-of-the-art performance, notably yielding a 15.57% reduction in FGD and a 5.0% improvement in SRGR on the TED Emotion benchmark. Furthermore, SEAG exhibits robust zero-shot generalization on out-of-distribution data, ensuring precise emotional controllability without compromising communicative clarity.
     <!--/ Abstract. -->
   </div>
 </section>
