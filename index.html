@@ -162,7 +162,7 @@
       
       <div class="content has-text-justified" style="margin-top: 20px; line-height: 1.6;">
         <p>
-          <strong>Overview of the proposed SEAG framework.</strong> The pipeline consists of two phases: Stage 1: Input speech is first processed by frozen encoders to extract semantic \( z_s \) and emotional \( z_e \) features. These features undergo Bidirectional Alignment (Semantic-to-Emotional and Emotional-to-Semantic) to produce refined, mutually consistent representations \( z'_s, z'_e\), which are integrated via \( \mathcal{F}(\cdot) \) to formulate the joint driving manifold \( z_fuse\). 
+          <strong>Overview of the proposed SEAG framework.</strong> The pipeline consists of two phases: Stage 1: Input speech is first processed by frozen encoders to extract semantic \( z_s \) and emotional \( z_e \) features. These features undergo Bidirectional Alignment (Semantic-to-Emotional and Emotional-to-Semantic) to produce refined, mutually consistent representations \( z'_s, z'_e\), which are integrated via \( \mathcal{F}(\cdot) \) to formulate the joint driving manifold \( z_{fuse} \). 
 Stage 2: We utilize a VQ-VAE based Motion Prior to compress motion into a latent space. A diffusion model then synthesizes motion latents conditioned on the unified driving manifold, where \( sg[\cdot] \) denotes the stop-gradient operation to decouple the training of the prior and the diffusion transformer.
      </p>
       </div>
